@@ -86,8 +86,8 @@ CombinwithActivityNames <- merge(subsetforMeanandStd, ALabels, by='activityid', 
 # Step 5:From the data set in step 3, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 # Creating Second Dataset
-Seconddataset <- aggregate(. ~Subjectid + activityid, CombinwithActivityNames, mean)
-Seconddataset <- Seconddataset[order(Seconddataset$Subjectid, Seconddataset$activityid),]
+Seconddataset <- aggregate(. ~Subjectid + activitytype, CombinwithActivityNames, mean)
+Seconddataset <- Seconddataset[order(Seconddataset$Subjectid, Seconddataset$activitytype),]
 
 # writing second tidy dataset
 write.table(Seconddataset,"SecondTidyData.txt" , row.names = FALSE)
